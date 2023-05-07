@@ -32,9 +32,8 @@ def get_medics():
 
 @app.get('/medics/filter')
 def get_medics_by_specialization():
-    medics = request.get_json()
-    specialization = medics["specialization"]
-    geographic_location = medics["geographic_location"]
+    specialization = request.args["specialization"]
+    geographic_location = request.args["geographic_location"]
     conn = get_connection()
     cur = conn.cursor(cursor_factory=extras.RealDictCursor)
     
@@ -55,12 +54,11 @@ def get_medics_by_specialization():
 
 @app.post("/medics")
 def post_medic():
-    new_medic = request.get_json()
-    first_name = new_medic["first_name"]
-    last_name = new_medic["last_name"]
-    specialization = new_medic["specialization"]
-    credentials = new_medic["credentials"]
-    geographic_location = new_medic["geographic_location"]
+    first_name = request.args["first_name"]
+    last_name= request.args["last_name"]
+    specialization= request.args["specialization"]
+    credentials = request.args["credentials"]
+    geographic_location = request.args["geographic_location"]
     
 
     conn = get_connection()
@@ -78,9 +76,8 @@ def post_medic():
 
 @app.put("/medics")
 def update_medic():
-    medic = request.get_json()
-    medic_id = medic["medic_id"]
-    specialization = medic["specialization"]
+    medic_id = request.args["medic_id"]
+    specialization = request.args["specialization"]
 
     conn = get_connection()
     cur = conn.cursor()
@@ -99,8 +96,7 @@ def update_medic():
 
 @app.delete("/medics")
 def delete_medic():
-    medic = request.get_json()
-    medic_id = medic["medic_id"]
+    medic_id = request.args["medic_id"]
 
     conn = get_connection()
     cur = conn.cursor()
