@@ -1,6 +1,16 @@
 const url = "http://54.207.227.87:8080/medics"
 
-export default function getDataMedicos(){
-    return fetch(url)
-    .then(res => res.data);
-};
+const fetchData = () => {
+    return fetch(`http://54.207.227.87:8080/medics`)
+      .then((response) => response.json())
+      .then((actualData) => {
+        console.log(actualData);
+        setData(actualData.medics);
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+export default fetchData;
