@@ -3,8 +3,10 @@ import psycopg2
 from psycopg2 import connect, extras
 from flask import Flask, render_template, jsonify, Response, send_file, request
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 def get_connection():
     conn = psycopg2.connect(host='localhost',
@@ -28,7 +30,9 @@ def get_medics():
     cur.close()
     conn.close()
 
-    return jsonify(result)
+    
+
+    return jsonify({'medics':result})
 
 @app.get('/medics/filter')
 def get_medics_by_specialization():
