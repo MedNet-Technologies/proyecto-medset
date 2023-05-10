@@ -34,6 +34,7 @@ export default function Lista_medicos() {
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Especialización</th>
+                <th scope="col">Comuna</th>
                 <th></th>
               </tr>
             </thead>
@@ -51,6 +52,7 @@ export default function Lista_medicos() {
                   <th scope="col">Nombre</th>
                   <th scope="col">Apellido</th>
                   <th scope="col">Especialización</th>
+                  <th scope="col">Comuna</th>
                   <th></th>
                 </tr>
               </thead>
@@ -61,6 +63,7 @@ export default function Lista_medicos() {
                       <td>{todo.first_name}</td>
                       <td>{todo.last_name}</td>
                       <td>{todo.specialization}</td>
+                      <td>{todo.geographic_location}</td>
                     </tr>
                   );
                 })}
