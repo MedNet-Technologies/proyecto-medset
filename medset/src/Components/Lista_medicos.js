@@ -21,24 +21,34 @@ export default function Lista_medicos() {
     fetchData();
   }, []);
   return (
-      <div className="card mb-3 mt-3 shadow-sm">
-        <div class="card-header text-light">
-          Selecciona un Médico
+      <div className="card">
+        <div class="card-header text-light h5 ps-4 py-3">
+          SELECCIONA UN MÉDICO
         </div>
         {!(data.length > 0) ? (
-          <div class="card-body">
+          <div class="card-body table-responsive">
           <table class="table">
             <thead>
-              <tr>
+              <tr class="text-secondary">
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
-                <th scope="col">Especialización</th>
                 <th scope="col">Comuna</th>
+                <th scope="col">Especialización</th>
+                <th class="pa-0 ma-0"></th>
+                <th class="pa-0 ma-0"></th>
               </tr>
             </thead>
             <tbody>
+              <tr class="text-white">
+                <td scope="col">Tomás Roberto</td>
+                <td scope="col">González López</td>
+                <td scope="col">Viña del Mar</td>
+                <td scope="col">Dermatólogo</td>
+                <td><button class="btn btn-primary me-md-2" type="button">edit</button></td>
+                <td><button class="btn btn-danger me-md-2" type="button">delete</button></td>
+              </tr>
               <tr>
-                <th colspan="4" class="text-center">
+                <th colspan="6" class="text-center">
                   <div class="spinner-grow text-primary px-9" role="status">
                     <span class="visually-hidden">Loading...</span>
                   </div>
@@ -48,15 +58,16 @@ export default function Lista_medicos() {
           </table>
           </div>
         ) : (
-          <div class="table table-striped-columns">
-            <table class="table align-middle">
+          <div class="card-body table-responsive">
+            <table class="table">
               <thead>
-                <tr>
+                <tr class="text-secondary">
                   <th scope="col">Nombre</th>
                   <th scope="col">Apellido</th>
                   <th scope="col">Especialización</th>
                   <th scope="col">Comuna</th>
-                  <th></th>
+                  <th class="pa-0 ma-0"></th>
+                  <th class="pa-0 ma-0"></th>
                 </tr>
               </thead>
               <tbody>
@@ -65,8 +76,10 @@ export default function Lista_medicos() {
                     <tr>
                       <td>{todo.first_name}</td>
                       <td>{todo.last_name}</td>
-                      <td>{todo.specialization}</td>
                       <td>{todo.geographic_location}</td>
+                      <td>{todo.specialization}</td>
+                      <td><button class="btn btn-primary me-md-2" type="button">edit</button></td>
+                      <td><button class="btn btn-danger me-md-2" type="button">delete</button></td>
                     </tr>
                   );
                 })}
