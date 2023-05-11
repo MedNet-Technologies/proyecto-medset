@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react'
-import {Link} from "wouter";
-import Moment from 'moment';
+import React, { useEffect, useState } from "react";
+import { Link } from "wouter";
+import Moment from "moment";
 
-
-export default function Lista_medicos () {
+export default function Lista_medicos() {
   const [data, setData] = useState([]);
 
   const fetchData = () => {
@@ -18,59 +17,76 @@ export default function Lista_medicos () {
         console.log(err.message);
       });
   };
-    useEffect(() => {
-      fetchData();
-    }, []);
-    return (
-      <div className="card border-secondary mb-3 mt-3 shadow-lg"
-      style={{ maxWidth: "70rem" }}>
-          <h1  style={{fontWeight: 700}}>Seleccione un paciente</h1>
-          <div className="card-body" >
-              
-          {!data ? (
-        <table class="table-responsive">
-          <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Fecha ingreso</th>
-              <th></th>
-              {/* <th scope="col">fecha salida</th> */}
-            </tr>
-          </thead>
-          <tbody>
-            <div class="spinner-border" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </tbody>
-        </table>
-      ) : (
-        <div class="table-responsive">
-        <table class="table align-middle">
-          <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Fecha ingreso</th>
-              <th></th>
-              {/* <th scope="col">fecha salida</th> */}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((todo) => {
-              const auxval = `/nuevo_proceso/paciente_${todo.id_paciente}`;
-
-              return (
-                <tr>
-                  <td>{todo.first_name}</td>
-                  <td>{todo.last_name}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+  useEffect(() => {
+    fetchData();
+  }, []);
+  return (
+      <div className="card mx-auto"  style={{ maxWidth: '100rem' }}>
+        <div class="card-header text-light h5 ps-4 py-3">
+          SELECCIONA UN MÉDICO
         </div>
-      )}
-       </div>
+        {!(data.length > 0) ? (
+          <div class="card-body table-responsive">
+          <table class="table">
+            <thead>
+              <tr class="text-secondary">
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Comuna</th>
+                <th scope="col" >Especialización</th>
+                <th class="pa-0 ma-0" style={{ width: '2px' }}></th>
+                <th class="pa-0 ma-0" style={{ width: '1px' }}></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-white">
+                <td scope="col">Tomás Roberto</td>
+                <td scope="col">González López</td>
+                <td scope="col">Viña del Mar</td>
+                <td scope="col">Dermatólogo</td>
+                <td><button class="btn btn-primary me-md-2" type="button">edit</button></td>
+                <td><button class="btn btn-danger me-md-2" type="button">delete</button></td>
+              </tr>
+              <tr>
+                <th colspan="6" class="text-center">
+                  <div class="spinner-grow text-primary px-9" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        ) : (
+          <div class="card-body table-responsive">
+            <table class="table">
+              <thead>
+                <tr class="text-secondary">
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Comuna</th>
+                  <th scope="col">Especialización</th>
+                  <th class="pa-0 ma-0" style={{ width: '2px' }}></th>
+                  <th class="pa-0 ma-0" style={{ width: '1px' }}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((todo) => {
+                  return (
+                    <tr>
+                      <td>{todo.first_name}</td>
+                      <td>{todo.last_name}</td>
+                      <td>{todo.geographic_location}</td>
+                      <td>{todo.specialization}</td>
+                      <td><button class="btn btn-primary me-md-2" type="button">edit</button></td>
+                      <td><button class="btn btn-danger me-md-2" type="button">delete</button></td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
-  )
-  ;
+  );
 }
