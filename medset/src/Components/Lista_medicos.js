@@ -21,7 +21,7 @@ export default function Lista_medicos() {
     fetchData();
   }, []);
   return (
-      <div className="card">
+      <div className="card mx-auto"  style={{ maxWidth: '100rem' }}>
         <div class="card-header text-light h5 ps-4 py-3">
           SELECCIONA UN MÉDICO
         </div>
@@ -33,9 +33,9 @@ export default function Lista_medicos() {
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Comuna</th>
-                <th scope="col">Especialización</th>
-                <th class="pa-0 ma-0"></th>
-                <th class="pa-0 ma-0"></th>
+                <th scope="col" >Especialización</th>
+                <th class="pa-0 ma-0" style={{ width: '2px' }}></th>
+                <th class="pa-0 ma-0" style={{ width: '1px' }}></th>
               </tr>
             </thead>
             <tbody>
@@ -64,10 +64,10 @@ export default function Lista_medicos() {
                 <tr class="text-secondary">
                   <th scope="col">Nombre</th>
                   <th scope="col">Apellido</th>
-                  <th scope="col">Especialización</th>
                   <th scope="col">Comuna</th>
-                  <th class="pa-0 ma-0"></th>
-                  <th class="pa-0 ma-0"></th>
+                  <th scope="col">Especialización</th>
+                  <th class="pa-0 ma-0" style={{ width: '2px' }}></th>
+                  <th class="pa-0 ma-0" style={{ width: '1px' }}></th>
                 </tr>
               </thead>
               <tbody>
