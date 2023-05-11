@@ -153,12 +153,6 @@ h4{
 	top:1px;
 }
 
-/*Card tittle format*/
-h4.card-title{
-  text-align: center;
-
-}
-
 /* Tablas */
 
 th, td {
@@ -280,4 +274,11 @@ button.enviarData {
   font-weight: 350%;
 }
 
+.card {
+  background-color: #131313 !important;
+}
+
+.table {
+  border-color: #202020 !important;
+}
 

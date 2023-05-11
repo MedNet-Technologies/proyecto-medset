@@ -3,14 +3,14 @@ import './App.css';
 import { Route } from "wouter";
 
 import Lista_medicos from './Components/Lista_medicos';
-import Inicio from './Components/Inicio';
+import Home from './Components/Home';
+
 
 function App() {
   return (
     <div className="App">
-          <Route component={Lista_medicos} path="/lista_medicos" />
-          <Route component={Inicio} path='/'/>
-      
+          <Route component={Home} exact path="/"/>
+          <Route component={Lista_medicos} exact path="/lista_medicos"/>  
     </div>
   );
 }
