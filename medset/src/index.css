@@ -270,6 +270,9 @@ button.enviarData {
   width: fit-content;
 }
 
+.derecha{
+  float: right 
+}
 .tituloso{
   font-weight: 350%;
 }
