@@ -1,23 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route } from "wouter";
+
+import Lista_medicos from './Components/Lista_medicos';
+import Inicio from './Components/Inicio';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <Route component={Lista_medicos} path="/lista_medicos" />
+          <Route component={Inicio} path='/'/>
+      
     </div>
   );
 }

@@ -11,3 +11,273 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* Conf. generales */
+
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #1d3557;
+  padding: 40px;
+  font-family: Sans-Serif;
+  text-align: center;
+}
+
+.inicio {
+  text-align: center;  
+  width: 300px;  
+  height: 100%;  
+  padding: 14px 28px;
+}
+
+.bigbtn {
+  height: 100%;
+  width: 100%;
+}
+
+
+.a {
+  font-size: 100%;
+  text-align: center;
+}
+.container-datos-paciente{
+  background-color: #f3f2ed;
+  border-radius: 5px;
+  padding: 10%;
+  box-shadow: #c4ccca;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+/* Headers */
+
+h1 {
+  color: #06758d;  
+}
+
+h2 {
+  color: #06758d;  
+}
+
+h3 {
+  color: #06758d;
+}
+
+h4{
+  text-align: left;
+  color: #1d3557;
+}
+.info-ver{
+  text-align: center;
+
+}
+
+/* Botones */
+.button {
+  background-color: #18ccc5; 
+  border: none;
+  border-radius: 2px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.button1 {
+ color:  white;
+}
+
+.button1:hover {
+  background-color: #e7e7e7;
+  color: #18ccc5;
+  border: 1.5px solid #18ccc5;
+}
+
+.button:hover {
+  background-color: #e6ecef;
+  color: #18ccc5;
+  border: 1.5px solid #18ccc5;
+}
+
+.ver {
+	box-shadow: -22px 1px 11px -23px #bee2f9;
+	background-color:#18ccc5;
+  border-color: #63b8ee;
+	border-radius:11px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 8px #7cacde;
+}
+.ver:hover {
+	background-color:#468ccf;
+}
+.ver:active {
+	position:relative;
+	top:1px;
+}
+.editar {
+	box-shadow: -22px 1px 11px -23px #bee2f9;
+	background-color:#cd63ee;
+  border-color: #cd63ee;
+	border-radius:11px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 8px #c27cde;
+}
+.editar:hover {
+	background-color:#cf46a1;
+}
+.editar:active {
+	position:relative;
+	top:1px;
+}
+
+/*Card tittle format*/
+h4.card-title{
+  text-align: center;
+
+}
+
+/* Tablas */
+
+th, td {
+  border-bottom: 1px solid #ddd;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=number], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+.btn-primary {
+  background-color: #18ccc5; 
+  border: 0cm;
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+  border: 1px solid #18ccc5;
+  color: #18ccc5;
+}
+
+div.data {
+  padding: 20px;
+}
+
+button.enviarData { 
+  margin-top: 16px;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+  }
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.btn-edit{
+  background-color: #129b96;
+  color: white;
+}
+
+.btn-edit:hover {
+	background-color:white;
+  border-color: #129b96;
+  color: #129b96;
+
+}
+
+.able {
+  background-color: #45a049;
+  color: white;
+  width: 115px;
+}
+
+.able:hover{
+  border-color: #04AA6D;
+  background-color: white;
+  color: #04AA6D;
+}
+
+.disable{
+  background-color: crimson;
+  color: white;
+  width: 115px;
+}
+
+.disable:hover{
+  border-color: crimson;
+  color: crimson;
+  background-color: white;
+}
+
+.alert {
+  width: fit-content;
+}
+
+.tituloso{
+  font-weight: 350%;
+}
+
+

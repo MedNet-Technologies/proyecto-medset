@@ -3,8 +3,10 @@ import psycopg2
 from psycopg2 import connect, extras
 from flask import Flask, render_template, jsonify, Response, send_file, request
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 def get_connection():
     conn = psycopg2.connect(host='localhost',
