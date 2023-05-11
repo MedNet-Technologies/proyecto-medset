@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "wouter";
 import Moment from "moment";
+import Button from "react-bootstrap/Button";
+import Swal from "sweetalert2";
 
 export default function Lista_medicos() {
   const [data, setData] = useState([]);
+  
 
   const fetchData = () => {
     fetch(`http://54.207.227.87:8080/medics`)
@@ -73,7 +76,7 @@ export default function Lista_medicos() {
               <tbody>
                 {data.map((todo) => {
                   return (
-                    <tr>
+                    <tr class="text-white">
                       <td>{todo.first_name}</td>
                       <td>{todo.last_name}</td>
                       <td>{todo.geographic_location}</td>
