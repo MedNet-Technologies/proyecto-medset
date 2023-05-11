@@ -20,7 +20,8 @@ export default function Formulario_PacienteNuevo() {
       specialization: specialization,
       geographic_location: geographic_location,
     };
-    fetch("http://54.207.227.87:8080/medics", {
+    const url = `http://54.207.227.87:8080/medics?first_name=${payload.first_name}&last_name=${payload.last_name}&specialization=${payload.specialization}&credentials=${payload.credentials}&geographic_location=${payload.geographic_location}`
+    fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       mode: "cors",
