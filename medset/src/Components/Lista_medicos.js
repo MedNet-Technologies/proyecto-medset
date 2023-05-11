@@ -25,7 +25,9 @@ export default function Lista_medicos() {
   return (
     <div className="card mx-auto" style={{ maxWidth: "100rem" }}>
       <div class="card-header text-light h5 ps-4 py-3">
-        SELECCIONA UN MÉDICO
+        SELECCIONA UN MÉDICO 
+        <Link to={'/formulario_medicos'}><button class="btn btn-primary derecha" > Crear Médico</button></Link>
+        
       </div>
       {!(data.length > 0) ? (
         <div class="card-body table-responsive">

@@ -43,7 +43,7 @@ export default function Formulario_PacienteNuevo() {
       className="card border-secondary mb-3 mt-3 shadow-lg"
       style={{ maxWidth: "70rem" }}
     >
-      <div className="card-body">
+      <div className="card-body text-white">
         <h1 style={{ fontWeight: 700 }}>Ingresar datos de un nuevo médico</h1>
         <button
           className="btn btn-primary float-start"
