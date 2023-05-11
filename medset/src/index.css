@@ -29,6 +29,19 @@ body {
   text-align: center;
 }
 
+.inicio {
+  text-align: center;  
+  width: 300px;  
+  height: 100%;  
+  padding: 14px 28px;
+}
+
+.bigbtn {
+  height: 100%;
+  width: 100%;
+}
+
+
 .a {
   font-size: 100%;
   text-align: center;
@@ -138,12 +151,6 @@ h4{
 .editar:active {
 	position:relative;
 	top:1px;
-}
-
-/*Card tittle format*/
-h4.card-title{
-  text-align: center;
-
 }
 
 /* Tablas */
@@ -267,4 +274,11 @@ button.enviarData {
   font-weight: 350%;
 }
 
+.card {
+  background-color: #131313 !important;
+}
+
+.table {
+  border-color: #202020 !important;
+}
 

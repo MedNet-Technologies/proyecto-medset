@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "wouter";
 import Moment from "moment";
+import Button from "react-bootstrap/Button";
+import Swal from "sweetalert2";
 
 export default function Lista_medicos() {
   const [data, setData] = useState([]);
@@ -21,57 +23,107 @@ export default function Lista_medicos() {
     fetchData();
   }, []);
   return (
-    <div
-      className="card border-secondary mb-3 mt-3 shadow-lg"
-      style={{ maxWidth: "70rem" }}
-    >
-      <h1 style={{ fontWeight: 700 }}>Seleccione un médico</h1>
-      <div className="card-body">
-        {!data ? (
-          <table class="table-responsive">
+    <div className="card mx-auto" style={{ maxWidth: "100rem" }}>
+      <div class="card-header text-light h5 ps-4 py-3">
+        SELECCIONA UN MÉDICO
+      </div>
+      {!(data.length > 0) ? (
+        <div class="card-body table-responsive">
+          <table class="table">
             <thead>
-              <tr>
+              <tr class="text-secondary">
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
-                <th scope="col">Especialización</th>
                 <th scope="col">Comuna</th>
-                <th></th>
+                <th scope="col">Especialización</th>
+                <th class="pa-0 ma-0" style={{ width: "2px" }}></th>
+                <th class="pa-0 ma-0" style={{ width: "1px" }}></th>
               </tr>
             </thead>
             <tbody>
-              <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
+              <tr class="text-white">
+                <td scope="col">Tomás Roberto</td>
+                <td scope="col">González López</td>
+                <td scope="col">Viña del Mar</td>
+                <td scope="col">Dermatólogo</td>
+                <td>
+                  <button class="btn btn-primary me-md-2" type="button">
+                    edit
+                  </button>
+                </td>
+                <td>
+                  <button class="btn btn-danger me-md-2" type="button">
+                    delete
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th colspan="6" class="text-center">
+                  <div class="spinner-grow text-primary px-9" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </th>
+              </tr>
             </tbody>
           </table>
-        ) : (
-          <div class="table-responsive">
-            <table class="table align-middle">
-              <thead>
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Apellido</th>
-                  <th scope="col">Especialización</th>
-                  <th scope="col">Comuna</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((todo) => {
-                  return (
-                    <tr>
-                      <td>{todo.first_name}</td>
-                      <td>{todo.last_name}</td>
-                      <td>{todo.specialization}</td>
-                      <td>{todo.geographic_location}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div class="card-body table-responsive">
+          <table class="table">
+            <thead>
+              <tr class="text-secondary">
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Comuna</th>
+                <th scope="col">Especialización</th>
+                <th class="pa-0 ma-0" style={{ width: "2px" }}></th>
+                <th class="pa-0 ma-0" style={{ width: "1px" }}></th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((todo) => {
+                const deleteURL = `http://54.207.227.87:8080/medics?medic_id=${todo.medic_id}`
+                return (
+                  <tr class="text-white">
+                    <td>{todo.first_name}</td>
+                    <td>{todo.last_name}</td>
+                    <td>{todo.geographic_location}</td>
+                    <td>{todo.specialization}</td>
+                    <td>
+                      <button class="btn btn-primary me-md-2" type="button">
+                        edit
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-danger me-md-2"
+                        type="button"
+                        onClick={() => {
+                          try {
+                            fetch(deleteURL, {
+                              method: "DELETE",
+                              headers: {
+                                "Content-Type": "application/json",
+                              },
+                            }
+                            );
+                          } catch (error) {
+                            console.error(error);
+                            alert("Unable to delete item.");
+                          }
+                        }
+                      }
+                      >
+                        delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

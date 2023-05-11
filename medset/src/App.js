@@ -1,7 +1,8 @@
 import "./App.css";
 import { Route } from "wouter";
 
-import Home from "./Components/Home";
+
+import Home from './Components/Home';
 
 import Lista_medicos from "./Components/Lista_medicos";
 import Formulario_MedicoNuevo from "./Components/Formulario_NuevoMedico";
