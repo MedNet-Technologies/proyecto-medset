@@ -21,31 +21,34 @@ export default function Lista_medicos() {
     fetchData();
   }, []);
   return (
-    <div
-      className="card border-secondary mb-3 mt-3 shadow-lg"
-      style={{ maxWidth: "70rem" }}
-    >
-      <h1 style={{ fontWeight: 700 }}>Seleccione un médico</h1>
-      <div className="card-body">
-        {!data ? (
-          <table class="table-responsive">
+      <div className="card mb-3 mt-3 shadow-sm">
+        <div class="card-header text-light">
+          Selecciona un Médico
+        </div>
+        {!(data.length > 0) ? (
+          <div class="card-body">
+          <table class="table">
             <thead>
               <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Especialización</th>
                 <th scope="col">Comuna</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
-              <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
+              <tr>
+                <th colspan="4" class="text-center">
+                  <div class="spinner-grow text-primary px-9" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </th>
+              </tr>
             </tbody>
           </table>
+          </div>
         ) : (
-          <div class="table-responsive">
+          <div class="table table-striped-columns">
             <table class="table align-middle">
               <thead>
                 <tr>
@@ -72,6 +75,5 @@ export default function Lista_medicos() {
           </div>
         )}
       </div>
-    </div>
   );
 }
