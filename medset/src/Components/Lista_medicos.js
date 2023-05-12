@@ -85,6 +85,8 @@ export default function Lista_medicos() {
             <tbody>
               {data.map((todo) => {
                 const deleteURL = `http://54.207.227.87:8080/medics?medic_id=${todo.medic_id}`
+                const panaURL = `/formulario_medicos/${todo.medic_id}`
+
                 return (
                   <tr class="text-white">
                     <td>{todo.first_name}</td>
@@ -92,9 +94,12 @@ export default function Lista_medicos() {
                     <td>{todo.geographic_location}</td>
                     <td>{todo.specialization}</td>
                     <td>
-                      <button class="btn btn-primary me-md-2" type="button">
+                      <Link to={panaURL}>                      
+                      <button class="btn btn-primary me-md-2" type="button" >
                         edit
                       </button>
+                      </Link>
+
                     </td>
                     <td>
                       <button
@@ -108,7 +113,8 @@ export default function Lista_medicos() {
                                 "Content-Type": "application/json",
                               },
                             }
-                            );
+                            ).then(function (res) {
+                              window.location.reload();});
                           } catch (error) {
                             console.error(error);
                             alert("Unable to delete item.");
