@@ -40,21 +40,13 @@ export default function Formulario_MedicoNuevo() {
   };
   return (
     <div
-      className="card border-secondary mb-3 mt-3 shadow-lg"
+      className="card shadow-lg mx-auto"
       style={{ maxWidth: "70rem" }}
     >
-      <div className="card-body text-white">
-        <h1 style={{ fontWeight: 700 }}>Ingresar datos de un nuevo médico</h1>
-        <div>
-          <button
-            className="btn btn-primary float-start"
-            onClick={() => setLocation("/Lista_medicos")}
-          >
-            Ir a médicos
-            <i class="bi bi-arrow-left-circle-fill"></i>
-          </button>
-        </div>
-        <div>
+      <div className="card-header text-light h5 ps-4 py-3">
+        INGRESAR DATOS DE UN NUEVO MÉDICO
+      </div>
+        <div className="card-body text-white">
           <form
             id="meds"
             onSubmit={handleSubmit}
@@ -115,13 +107,17 @@ export default function Formulario_MedicoNuevo() {
                 onChange={(e) => setCredentials(e.target.value)}
               ></input>
             </div>
-
-            <button type="submit" class="btn btn-primary">
+            <button
+              className="btn ms-2 btn-primary"
+              onClick={() => setLocation("/Lista_medicos")}
+            >
+              Volver
+            </button>
+            <button type="submit" class="btn btn-primary ms-2">
               Enviar
             </button>
           </form>
         </div>
       </div>
-    </div>
   );
 }
