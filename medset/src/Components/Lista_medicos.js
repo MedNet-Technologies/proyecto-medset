@@ -27,7 +27,7 @@ export default function Lista_medicos() {
       <div class="card-header text-light h5 ps-4 py-3">
       <Link to={'/lista_medicos_receta'}><button class="btn btn-primary izquierda" > usr</button></Link>
         SELECCIONA UN MÉDICO 
-        <Link to={'/formulario_medicos'}><button class="btn btn-primary derecha" > Crear Médico</button></Link>
+        <Link to={'/formulario_medicos'}><button class="btn btn-primary derecha">Crear Médico</button></Link>
         
       </div>
       {!(data.length > 0) ? (
