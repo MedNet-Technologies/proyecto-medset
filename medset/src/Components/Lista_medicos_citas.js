@@ -4,7 +4,7 @@ import Moment from "moment";
 import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
 
-export default function Lista_medicos() {
+export default function Lista_medicos_citas() {
   const [data, setData] = useState([]);
 
   const fetchData = () => {
@@ -25,7 +25,8 @@ export default function Lista_medicos() {
   return (
     <div className="card mx-auto" style={{ maxWidth: "100rem" }}>
       <div class="card-header text-light h5 ps-4 py-3">
-      <Link to={'/lista_medicos_receta'}><button class="btn btn-primary izquierda" > usr</button></Link>
+      <Link to={'/lista_medicos'}><button class="btn btn-primary izquierda" > dev</button></Link>
+
         SELECCIONA UN MÉDICO 
         <Link to={'/formulario_medicos'}><button class="btn btn-primary derecha" > Crear Médico</button></Link>
         
@@ -76,55 +77,27 @@ export default function Lista_medicos() {
             <thead>
               <tr class="text-secondary">
                 <th scope="col">Nombre</th>
-                <th scope="col">Apellido</th>
                 <th scope="col">Comuna</th>
                 <th scope="col">Especialización</th>
                 <th class="pa-0 ma-0" style={{ width: "2px" }}></th>
-                <th class="pa-0 ma-0" style={{ width: "1px" }}></th>
               </tr>
             </thead>
             <tbody>
               {data.map((todo) => {
-                const deleteURL = `http://54.207.227.87:8080/medics?medic_id=${todo.medic_id}`
-                const panaURL = `/formulario_medicos/${todo.medic_id}`
+                const panaURL = `/nueva_cita/${todo.medic_id}`
 
                 return (
                   <tr class="text-white">
-                    <td>{todo.first_name}</td>
-                    <td>{todo.last_name}</td>
+                    <td>{todo.first_name} {todo.last_name}</td>
                     <td>{todo.geographic_location}</td>
                     <td>{todo.specialization}</td>
                     <td>
                       <Link to={panaURL}>                      
-                      <button class="btn btn-primary me-md-2" type="button" >
-                        edit
+                      <button class="btn btn-primary me-md-1" type="button" >
+                        Agendar
                       </button>
                       </Link>
 
-                    </td>
-                    <td>
-                      <button
-                        class="btn btn-danger me-md-2"
-                        type="button"
-                        onClick={() => {
-                          try {
-                            fetch(deleteURL, {
-                              method: "DELETE",
-                              headers: {
-                                "Content-Type": "application/json",
-                              },
-                            }
-                            ).then(function (res) {
-                              window.location.reload();});
-                          } catch (error) {
-                            console.error(error);
-                            alert("Unable to delete item.");
-                          }
-                        }
-                      }
-                      >
-                        delete
-                      </button>
                     </td>
                   </tr>
                 );

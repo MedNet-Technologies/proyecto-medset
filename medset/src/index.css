@@ -273,6 +273,11 @@ button.enviarData {
 .derecha{
   float: right 
 }
+
+.izquierda{
+  float: left
+}
+
 .tituloso{
   font-weight: 350%;
 }
