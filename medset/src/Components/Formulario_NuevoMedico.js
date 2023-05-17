@@ -40,7 +40,7 @@ export default function Formulario_MedicoNuevo() {
   };
   return (
     <div
-      className="card shadow-lg mx-auto"
+      className="card mx-auto"
       style={{ maxWidth: "70rem" }}
     >
       <div className="card-header text-light h5 ps-4 py-3">
