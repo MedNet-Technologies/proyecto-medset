@@ -81,12 +81,12 @@ def post_medic():
 @app.put("/medics")
 def update_medic():
     medic_id = request.args["medic_id"]
-    specialization = request.args["specialization"]
+    geographic_location = request.args["geographic_location"]
 
     conn = get_connection()
     cur = conn.cursor()
 
-    cur.execute("UPDATE medics SET specialization = %s WHERE medic_id = %s RETURNING *", (specialization, medic_id))
+    cur.execute("UPDATE medics SET geographic_location = %s WHERE medic_id = %s RETURNING *", (geographic_location, medic_id))
     res = cur.fetchone()
 
     conn.commit()
@@ -128,9 +128,28 @@ def get_appointments():
     cur.close()
     conn.close()
 
+    return jsonify({'appointments':result})
+
+@app.post("/appointments")
+def post_appointment ():
+    date = request.args["date"]
+    time = request.args["time"]
+    rut = request.args["rut"]
+    medic_id = request.args["medic_id"]
+    
+
+    conn = get_connection()
+    cur = conn.cursor(cursor_factory=extras.RealDictCursor)
+    cur.execute("INSERT INTO appointments (appointment_date, appointment_time, patient_rut, medic_id) VALUES (%s,%s,%s,%s) RETURNING *",
+                      (date,time,rut,medic_id))
+    
+    result = cur.fetchone()
+    conn.commit()
+
+    cur.close()
+    conn.close()
+
     return jsonify(result)
-
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=8080)
