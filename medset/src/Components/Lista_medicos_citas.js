@@ -28,7 +28,7 @@ export default function Lista_medicos_citas() {
       <Link to={'/lista_medicos'}><button class="btn btn-primary izquierda" > dev</button></Link>
 
         SELECCIONA UN MÉDICO 
-        <Link to={'/formulario_medicos'}><button class="btn btn-primary derecha" > Crear Médico</button></Link>
+        
         
       </div>
       {!(data.length > 0) ? (
