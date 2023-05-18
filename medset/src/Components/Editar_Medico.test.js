@@ -3,31 +3,29 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import Editar_Medico from './Editar_Medico';
 import getMedicoEspecifico from '../Services/getMedicoEspecifico';
 
-jest.mock('../Services/getMedicoEspecifico'); // Mock the getMedicoEspecifico function
+jest.mock('../Services/getMedicoEspecifico'); 
 
 describe('Editar_Medico', () => {
     
     beforeEach(() => {
-      jest.clearAllMocks(); // Clear mock function calls before each test
+      jest.clearAllMocks();
     });
   
-    test('updates medic information and redirects to Lista_medicos', async () => {
-      const keyword = '123'; // Sample keyword
+    test('Actualiza la información del médico en la BD con la recibida', async () => {
+      const keyword = '123';
       const mockFicha = [
         { medic_id: '123', geographic_location: 'Viña del Mar' },
       ];
   
-      getMedicoEspecifico.mockResolvedValue(mockFicha); // Mock the getMedicoEspecifico function to resolve with mockFicha
+      getMedicoEspecifico.mockResolvedValue(mockFicha);
   
       render(<Editar_Medico params={{ keyword }} />);
       const comunaInput = screen.getByLabelText(/comuna/i);
       const submitButton = screen.getByText(/enviar/i);
   
-      // Simulate user input and form submission
       fireEvent.change(comunaInput, { target: { value: 'Santiago' } });
       fireEvent.click(submitButton);
   
-      // Verify that the fetch request was made with the correct data
       expect(fetch).toHaveBeenCalledWith(
         'http://54.207.227.87:8080/medics?medic_id=123&geographic_location=Santiago',
         expect.objectContaining({
@@ -42,22 +40,16 @@ describe('Editar_Medico', () => {
         })
       );
   
-      // Mock the fetch response
       global.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
           json: jest.fn().mockResolvedValueOnce({}),
         })
       );
   
-
-  
-      // Verify that the redirection to Lista_medicos occurred
       expect(screen.getByText(/volver/i)).toBeInTheDocument();
   
-      // Verify that the getMedicoEspecifico function was called
       expect(getMedicoEspecifico).toHaveBeenCalledWith({ keyword });
-  
-      // Verify that the geographic_location state was updated
+
       expect(comunaInput.value).toBe('Santiago');
     });
   });

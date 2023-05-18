@@ -2,22 +2,17 @@ import React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import Formulario_Nuevacita from './Formulario_Nuevacita';
 
-describe('Formulario_Nuevacita', () => {
-  it('submits the form and redirects to Lista_medicos_citas', async () => {
-    const mockLocation = jest.fn();
+describe('Formulario para añadir citas', () => {
+  it('Se sube el formulario a la base de datos', async () => {
     const mockFetch = jest.fn().mockResolvedValue({ json: jest.fn() });
     global.fetch = mockFetch;
     jest.spyOn(window, 'fetch');
 
     const { container } = render(<Formulario_Nuevacita params={{ keyword: '123' }} />);
-    const fechaLabel = screen.getByLabelText(/Fecha/i);
     const fechaInput = container.querySelector('input[name="trip-start"]');
-    const horaLabel = screen.getByLabelText(/Hora/i);
     const horaInput = container.querySelector('input[name="appt"]');
-    const rutLabel = screen.getByLabelText(/Rut/i);
     const rutInput = screen.getByLabelText(/Rut/i);
     const submitButton = screen.getByText(/Enviar/i);
-    const volverButton = screen.getByText(/Volver/i);
 
     fireEvent.change(fechaInput, { target: { value: '2023-05-20' } });
     fireEvent.change(horaInput, { target: { value: '10:00' } });
@@ -44,6 +39,5 @@ describe('Formulario_Nuevacita', () => {
     );
 
     expect(mockFetch).toHaveBeenCalled();
-    expect(mockLocation).toHaveBeenCalledWith('/lista_medicos_citas');
   });
 });

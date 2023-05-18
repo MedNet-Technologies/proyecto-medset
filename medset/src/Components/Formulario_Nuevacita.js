@@ -71,7 +71,7 @@ export default function Formulario_Nuevacita({params}) {
           >   
               <div className="mb-3">
 
-              <label for="last_name">Fecha</label>
+              <label for="date">Fecha</label>
               <input type="date" id="start" name="trip-start"
               min="2018-01-01" max="2025-12-31"
               onChange={(e) => setDate(e.target.value.toString())}
@@ -80,7 +80,7 @@ export default function Formulario_Nuevacita({params}) {
             </div>
 
             <div className="mb-3">
-              <label for="first_name">Hora</label>
+              <label for="time">Hora</label>
               <input
                 type="time" id="appt" name="appt"
                 min="09:00" max="18:00" required
@@ -91,12 +91,12 @@ export default function Formulario_Nuevacita({params}) {
 
 
             <div className="mb-3">
-              <label for="specialization">Rut</label>
+              <label for="rut">Rut</label>
               <input
                 type="text"
                 required
-                name="specialization"
-                id="specialization"
+                name="rut"
+                id="rut"
                 onChange={(e) => setRut(e.target.value)}
               ></input>
             </div>
