@@ -44,22 +44,6 @@ export default function Lista_medicos() {
               </tr>
             </thead>
             <tbody>
-              <tr class="text-white">
-                <td scope="col">Tomás Roberto</td>
-                <td scope="col">González López</td>
-                <td scope="col">Viña del Mar</td>
-                <td scope="col">Dermatólogo</td>
-                <td>
-                  <button class="btn btn-primary me-md-2" type="button">
-                    edit
-                  </button>
-                </td>
-                <td>
-                  <button class="btn btn-danger me-md-2" type="button">
-                    delete
-                  </button>
-                </td>
-              </tr>
               <tr>
                 <th colspan="6" class="text-center">
                   <div class="spinner-grow text-primary px-9" role="status">
@@ -100,7 +84,6 @@ export default function Lista_medicos() {
                         edit
                       </button>
                       </Link>
-
                     </td>
                     <td>
                       <button

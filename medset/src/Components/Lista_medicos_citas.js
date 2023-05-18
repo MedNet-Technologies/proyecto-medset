@@ -45,22 +45,6 @@ export default function Lista_medicos_citas() {
               </tr>
             </thead>
             <tbody>
-              <tr class="text-white">
-                <td scope="col">Tomás Roberto</td>
-                <td scope="col">González López</td>
-                <td scope="col">Viña del Mar</td>
-                <td scope="col">Dermatólogo</td>
-                <td>
-                  <button class="btn btn-primary me-md-2" type="button">
-                    edit
-                  </button>
-                </td>
-                <td>
-                  <button class="btn btn-danger me-md-2" type="button">
-                    delete
-                  </button>
-                </td>
-              </tr>
               <tr>
                 <th colspan="6" class="text-center">
                   <div class="spinner-grow text-primary px-9" role="status">
@@ -77,6 +61,7 @@ export default function Lista_medicos_citas() {
             <thead>
               <tr class="text-secondary">
                 <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
                 <th scope="col">Comuna</th>
                 <th scope="col">Especialización</th>
                 <th class="pa-0 ma-0" style={{ width: "2px" }}></th>
@@ -88,7 +73,8 @@ export default function Lista_medicos_citas() {
 
                 return (
                   <tr class="text-white">
-                    <td>{todo.first_name} {todo.last_name}</td>
+                    <td>{todo.first_name}</td>
+                    <td>{todo.last_name}</td>
                     <td>{todo.geographic_location}</td>
                     <td>{todo.specialization}</td>
                     <td>
@@ -97,7 +83,6 @@ export default function Lista_medicos_citas() {
                         Agendar
                       </button>
                       </Link>
-
                     </td>
                   </tr>
                 );

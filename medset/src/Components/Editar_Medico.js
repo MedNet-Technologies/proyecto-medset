@@ -47,7 +47,7 @@ export default function Editar_medico ( {params} ) {
         );
     };
   return (
-<div className="card mx-auto shadow-lg" style={{ maxWidth: "70rem" }}>
+<div className="card mx-auto" style={{ maxWidth: "70rem" }}>
         <div className="card-header text-light h5 ps-4 py-3">ACTUALIZA DATOS</div>
         <div className="card-body text-white" >
         <form onSubmit={handleSubmit} className="needs-validation" novalidate>
