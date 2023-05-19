@@ -27,11 +27,13 @@ export default function Lista_medicos_citas() {
 
   const getValueInput = (event) => {
     const inputValue = event.target.value.toLowerCase();
-    if (inputValue === "") {
+    if (inputValue === "" || null) {
       setFilteredData(data);
     } else {
       const filteredResults = data.filter(
-        (medico) => medico.specialization.toLowerCase().includes(inputValue)
+        (medico) =>
+          medico.specialization.toLowerCase().includes(inputValue) ||
+          medico.geographic_location.toLowerCase().includes(inputValue)
       );
       setFilteredData(filteredResults);
     }
