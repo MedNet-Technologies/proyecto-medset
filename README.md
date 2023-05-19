@@ -1,5 +1,10 @@
-# proyecto-medset
-:^)
+
+# Mednet Technologies
+
+Proyecto para el ramo INF331 Pruebas de Software impartido por el profesor Oscar Reyes.
+
+Nuestro proyecto está integrado por Nicolás Tapia, Claudio ??, Paulina Vega y Miguel Vergara.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
