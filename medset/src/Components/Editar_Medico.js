@@ -18,34 +18,47 @@ export default function Editar_medico ( {params} ) {
 
 
   
-    const handleSubmit = async (e) => {
-        e.stopPropagation();
-        e.nativeEvent.stopImmediatePropagation();
-
-      var payload = {
-        medic_id: parseInt(keyword),
-        geographic_location: geographic_location,
-      };
-      console.log(payload)
-      const url = `http://54.207.227.87:8080/medics?medic_id=${payload.medic_id}&geographic_location=${payload.geographic_location}`;
-      fetch(url, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        mode: "cors",
-        body: JSON.stringify(payload),
-      }).then((res) => res.json())
-        .then(function (res) {
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        var payload = {
+          medic_id: parseInt(keyword),
+          geographic_location: geographic_location,
+        };
+      
+        const url = `http://54.207.227.87:8080/medics?medic_id=${payload.medic_id}&geographic_location=${payload.geographic_location}`;
+      
+        try {
+          const response = await fetch(url, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+      
+          if (response.ok) {
+            Swal.fire({
+              text: "Medico actualizado correctamente",
+              icon: "success",
+              showConfirmButton: true,
+            });
+      
+            setLocation("/Lista_medicos");
+          } else {
+            Swal.fire({
+              text: "Error al actualizar el medico",
+              icon: "error",
+              showConfirmButton: true,
+            });
+          }
+        } catch (error) {
+          console.error(error);
           Swal.fire({
-            text: "Medico actualizado correctamente",
-            icon: "success",
+            text: "Error al actualizar el medico",
+            icon: "error",
             showConfirmButton: true,
           });
-          return res;
-        })
-        .then(
-          setLocation("/Lista_medicos")
-        );
-    };
+        }
+      };
   return (
 <div className="card mx-auto shadow-lg" style={{ maxWidth: "70rem" }}>
         <div className="card-header text-light h5 ps-4 py-3">ACTUALIZA DATOS</div>

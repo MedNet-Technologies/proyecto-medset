@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 export default function Lista_medicos_citas() {
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState(data);
 
   const fetchData = () => {
     fetch(`http://54.207.227.87:8080/medics`)
@@ -22,6 +23,24 @@ export default function Lista_medicos_citas() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const getValueInput = (event) => {
+    const inputValue = event.target.value.toLowerCase();
+    if (inputValue === "") {
+      setFilteredData(data);
+    } else {
+      const filteredResults= data.filter(
+        (medico) =>
+          medico.specialization.toLowerCase().includes(inputValue)
+      );
+      setFilteredData(filteredResults);
+    }
+  };
+  useEffect(() => {
+    setFilteredData(data);
+  }, []);
+
+
   return (
     <div className="card mx-auto" style={{ maxWidth: "100rem" }}>
       <div class="card-header text-light h5 ps-4 py-3">
@@ -31,6 +50,9 @@ export default function Lista_medicos_citas() {
         <Link to={'/formulario_medicos'}><button class="btn btn-primary derecha" > Crear Médico</button></Link>
         
       </div>
+      <div className="mt-3 mb-4 align-middle d-flex flex-row">
+          <input type="text" placeholder='search' className="search" size="35" onChange={getValueInput} />
+        </div>
       {!(data.length > 0) ? (
         <div class="card-body table-responsive">
           <table class="table">
@@ -83,7 +105,7 @@ export default function Lista_medicos_citas() {
               </tr>
             </thead>
             <tbody>
-              {data.map((todo) => {
+              {filteredData.map((todo) => {
                 const panaURL = `/nueva_cita/${todo.medic_id}`
 
                 return (
