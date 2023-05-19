@@ -1,44 +1,88 @@
-import React from "react";
-import { render, screen, waitFor, fireEvent } from "@testing-library/react";
-import Lista_medicos_citas from "./Lista_medicos_citas";
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Lista_medicos_citas from './Lista_medicos_citas';
 
-beforeEach(() => {
-  fetch.resetMocks();
-})
+describe('Lista_medicos_citas', () => {
+  test('Muestra la lista de doctores con los datos de la BD', async () => {
+    const mockData = [
+      {
+        medic_id: 1,
+        first_name: 'John',
+        last_name: 'Doe',
+        geographic_location: 'New York',
+        specialization: 'Cardiology',
+      },
+    ];
 
-describe("Comportamiento de la lista de médicos", () => {
-  test("Muestra la tabla con información obtenida", async () => {
-    const mockData = {
-        medics: [
-          {
-            medic_id: 1,
-            first_name: "John",
-            last_name: "Doe",
-            geographic_location: "Viña del Mar",
-            specialization: "Dermatólogo",
-          },
-          {
-            medic_id: 2,
-            first_name: "Jane",
-            last_name: "Doe",
-            geographic_location: "Santiago",
-            specialization: "Pediatra",
-          },
-        ],
-      };
-  
-      jest.spyOn(global, "fetch").mockResolvedValue({
-        json: jest.fn().mockResolvedValue(mockData),
-      });
-  
-      render(<Lista_medicos_citas />);
-  
-      const firstMedicName = await screen.findByText("John Doe");
-      expect(firstMedicName).toBeInTheDocument();
-  
-      const secondMedicLocation = await screen.findByText("Santiago");
-      expect(secondMedicLocation).toBeInTheDocument();
-  
-      global.fetch.mockRestore();
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      json: jest.fn().mockResolvedValue({ medics: mockData }),
+    });
+
+    render(
+      <Router>
+        <Lista_medicos_citas />
+      </Router>
+    );
+
+    await screen.findByText((content, element) => {
+      const hasText = (text) => element => element.textContent === text;
+      return hasText('New York')(element) && hasText('Cardiology')(element);
+    });
+
+    const geographicLocation = screen.getByText('New York');
+    const specialization = screen.getByText('Cardiology');
+    const agendarButton = screen.getByText('Agendar');
+
+    expect(geographicLocation).toBeInTheDocument();
+    expect(specialization).toBeInTheDocument();
+    expect(agendarButton).toBeInTheDocument();
   });
+
+  test('Filtra los datos en la tabla según la barra de búsqueda', async () => {
+    const mockData = [
+      {
+        medic_id: 1,
+        first_name: 'John',
+        last_name: 'Doe',
+        geographic_location: 'New York',
+        specialization: 'Cardiology',
+      },
+      {
+        medic_id: 2,
+        first_name: 'Jane',
+        last_name: 'Smith',
+        geographic_location: 'Los Angeles',
+        specialization: 'Dermatology',
+      },
+    ];
+  
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      json: jest.fn().mockResolvedValue({ medics: mockData }),
+    });
+  
+    render(
+      <Router>
+        <Lista_medicos_citas />
+      </Router>
+    );
+  
+    await screen.findByText('Jane Smith');
+    await screen.findByText('Los Angeles');
+    await screen.findByText('Dermatology');
+  
+    const searchInput = screen.getByPlaceholderText('search');
+    fireEvent.change(searchInput, { target: { value: 'derm' } });
+  
+    const filteredDoctorName = screen.getByText('Jane Smith');
+    const filteredGeographicLocation = screen.getByText('Los Angeles');
+    const filteredSpecialization = screen.getByText('Dermatology');
+  
+    expect(filteredDoctorName).toBeInTheDocument();
+    expect(filteredGeographicLocation).toBeInTheDocument();
+    expect(filteredSpecialization).toBeInTheDocument();
+  });
+  
+
+  // Add more test cases as needed
 });
