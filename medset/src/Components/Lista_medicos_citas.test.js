@@ -13,6 +13,13 @@ describe('Lista_medicos_citas', () => {
         geographic_location: 'New York',
         specialization: 'Cardiology',
       },
+      {
+        medic_id: 2,
+        first_name: 'Jane',
+        last_name: 'Smith',
+        geographic_location: 'Los Angeles',
+        specialization: 'Dermatology',
+      },
     ];
 
     jest.spyOn(global, 'fetch').mockResolvedValue({
@@ -25,18 +32,9 @@ describe('Lista_medicos_citas', () => {
       </Router>
     );
 
-    await screen.findByText((content, element) => {
-      const hasText = (text) => element => element.textContent === text;
-      return hasText('New York')(element) && hasText('Cardiology')(element);
-    });
-
-    const geographicLocation = screen.getByText('New York');
-    const specialization = screen.getByText('Cardiology');
-    const agendarButton = screen.getByText('Agendar');
-
-    expect(geographicLocation).toBeInTheDocument();
-    expect(specialization).toBeInTheDocument();
-    expect(agendarButton).toBeInTheDocument();
+    await screen.findByText('Jane Smith');
+    await screen.findByText('Los Angeles');
+    await screen.findByText('Dermatology');
   });
 
   test('Filtra los datos en la tabla según la barra de búsqueda', async () => {
