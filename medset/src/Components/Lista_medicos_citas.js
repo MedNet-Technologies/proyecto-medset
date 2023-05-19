@@ -26,12 +26,13 @@ export default function Lista_medicos_citas() {
 
   const getValueInput = (event) => {
     const inputValue = event.target.value.toLowerCase();
-    if (inputValue === "") {
+    if (inputValue === "" || null) {
       setFilteredData(data);
     } else {
-      const filteredResults= data.filter(
+      const filteredResults = data.filter(
         (medico) =>
-          medico.specialization.toLowerCase().includes(inputValue)
+          medico.specialization.toLowerCase().includes(inputValue) ||
+          medico.geographic_location.toLowerCase().includes(inputValue)
       );
       setFilteredData(filteredResults);
     }
@@ -40,19 +41,26 @@ export default function Lista_medicos_citas() {
     setFilteredData(data);
   }, []);
 
-
   return (
     <div className="card mx-auto" style={{ maxWidth: "100rem" }}>
       <div class="card-header text-light h5 ps-4 py-3">
-      <Link to={'/lista_medicos'}><button class="btn btn-primary izquierda" > dev</button></Link>
-
-        SELECCIONA UN MÉDICO 
-        <Link to={'/formulario_medicos'}><button class="btn btn-primary derecha" > Crear Médico</button></Link>
-        
+        <Link to={"/lista_medicos"}>
+          <button class="btn btn-primary izquierda"> dev</button>
+        </Link>
+        SELECCIONA UN MÉDICO
+        <Link to={"/formulario_medicos"}>
+          <button class="btn btn-primary derecha"> Crear Médico</button>
+        </Link>
       </div>
       <div className="mt-3 mb-4 align-middle d-flex flex-row">
-          <input type="text" placeholder='search' className="search" size="35" onChange={getValueInput} />
-        </div>
+        <input
+          type="text"
+          placeholder="search"
+          className="search"
+          size="35"
+          onChange={getValueInput}
+        />
+      </div>
       {!(data.length > 0) ? (
         <div class="card-body table-responsive">
           <table class="table">
@@ -106,20 +114,21 @@ export default function Lista_medicos_citas() {
             </thead>
             <tbody>
               {filteredData.map((todo) => {
-                const panaURL = `/nueva_cita/${todo.medic_id}`
+                const panaURL = `/nueva_cita/${todo.medic_id}`;
 
                 return (
                   <tr class="text-white">
-                    <td>{todo.first_name} {todo.last_name}</td>
+                    <td>
+                      {todo.first_name} {todo.last_name}
+                    </td>
                     <td>{todo.geographic_location}</td>
                     <td>{todo.specialization}</td>
                     <td>
-                      <Link to={panaURL}>                      
-                      <button class="btn btn-primary me-md-1" type="button" >
-                        Agendar
-                      </button>
+                      <Link to={panaURL}>
+                        <button class="btn btn-primary me-md-1" type="button">
+                          Agendar
+                        </button>
                       </Link>
-
                     </td>
                   </tr>
                 );
