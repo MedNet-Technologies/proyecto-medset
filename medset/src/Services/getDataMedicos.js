@@ -1,7 +1,7 @@
-const url = "http://54.207.227.87:8080/medics"
+const url = "http://15.228.191.117:8080/medics"
 
 const fetchData = () => {
-    return fetch(`http://54.207.227.87:8080/medics`)
+    return fetch(`http://15.228.191.117:8080/medics`)
       .then((response) => response.json())
       .then((actualData) => {
         console.log(actualData);

@@ -27,7 +27,7 @@ describe('Editar_Medico', () => {
       fireEvent.click(submitButton);
   
       expect(fetch).toHaveBeenCalledWith(
-        'http://54.207.227.87:8080/medics?medic_id=123&geographic_location=Santiago',
+        'http://15.228.191.117:8080/medics?medic_id=123&geographic_location=Santiago',
         expect.objectContaining({
           method: 'PUT',
           headers: {

@@ -8,7 +8,7 @@ export default function Lista_medicos() {
   const [data, setData] = useState([]);
 
   const fetchData = () => {
-    fetch(`http://54.207.227.87:8080/medics`)
+    fetch(`http://15.228.191.117:8080/medics`)
       .then((response) => response.json())
       .then((actualData) => {
         console.log(actualData);
@@ -85,7 +85,7 @@ export default function Lista_medicos() {
             </thead>
             <tbody>
               {data.map((todo) => {
-                const deleteURL = `http://54.207.227.87:8080/medics?medic_id=${todo.medic_id}`
+                const deleteURL = `http://15.228.191.117:8080/medics?medic_id=${todo.medic_id}`
                 const panaURL = `/formulario_medicos/${todo.medic_id}`
 
                 return (

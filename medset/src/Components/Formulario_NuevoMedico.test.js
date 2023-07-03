@@ -28,7 +28,7 @@ describe('Formulario_MedicoNuevo', () => {
     });
 
     expect(window.fetch).toHaveBeenCalledWith(
-      expect.stringMatching(/http:\/\/54\.207\.227\.87:8080\/medics\?.*first_name=John.*last_name=Doe.*specialization=Cardiology.*credentials=MD.*geographic_location=New York/),
+      expect.stringMatching(/http:\/\/15\.228\.191\.117:8080\/medics\?.*first_name=John.*last_name=Doe.*specialization=Cardiology.*credentials=MD.*geographic_location=New York/),
       {
         method: 'POST',
         headers: {

@@ -9,7 +9,7 @@ export default function Lista_medicos_citas() {
   const [filteredData, setFilteredData] = useState([]);
 
   const fetchData = () => {
-    fetch(`http://54.207.227.87:8080/medics`)
+    fetch(`http://15.228.191.117:8080/medics`)
       .then((response) => response.json())
       .then((actualData) => {
         console.log(actualData);

@@ -26,7 +26,7 @@ export default function Formulario_Nuevacita({params}) {
       rut: rut,
       medic_id: parseInt(keyword),
     };
-    const url = `http://54.207.227.87:8080/appointments?date=${payload.date}&time=${payload.time}&rut=${payload.rut}&medic_id=${payload.medic_id}`;
+    const url = `http://15.228.191.117:8080/appointments?date=${payload.date}&time=${payload.time}&rut=${payload.rut}&medic_id=${payload.medic_id}`;
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

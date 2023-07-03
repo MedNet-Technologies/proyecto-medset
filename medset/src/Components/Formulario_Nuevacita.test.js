@@ -23,7 +23,7 @@ describe('Formulario para añadir citas', () => {
     });
 
     expect(window.fetch).toHaveBeenCalledWith(
-      'http://54.207.227.87:8080/appointments?date=2023-05-20&time=10:00&rut=123456789&medic_id=123',
+      'http://15.228.191.117:8080/appointments?date=2023-05-20&time=10:00&rut=123456789&medic_id=123',
       expect.objectContaining({
         method: 'POST',
         headers: {

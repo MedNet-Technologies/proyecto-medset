@@ -44,7 +44,7 @@ describe("Comportamiento de la lista de médicos", () => {
 
   test("Recibe información de la API", async() => {
     fetch.mockResponse(req =>
-      req.url === 'http://54.207.227.87:8080/medics'
+      req.url === 'http://15.228.191.117:8080/medics'
         ? callMyApi().then(res => 'ok')
         : Promise.reject(new Error('bad url'))
     )
@@ -96,7 +96,7 @@ describe("Comportamiento de la lista de médicos", () => {
   
     fireEvent.click(screen.getAllByText(/delete/i)[0]);
   
-    const deleteURL = "http://54.207.227.87:8080/medics?medic_id=1"; // Adjust the URL based on your data
+    const deleteURL = "http://15.228.191.117:8080/medics?medic_id=1"; // Adjust the URL based on your data
     expect(global.fetch).toHaveBeenCalledWith(deleteURL, expect.any(Object));
   
     global.fetch.mockRestore();

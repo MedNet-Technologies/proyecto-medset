@@ -26,7 +26,7 @@ export default function Editar_medico ( {params} ) {
           geographic_location: geographic_location,
         };
       
-        const url = `http://54.207.227.87:8080/medics?medic_id=${payload.medic_id}&geographic_location=${payload.geographic_location}`;
+        const url = `http://15.228.191.117:8080/medics?medic_id=${payload.medic_id}&geographic_location=${payload.geographic_location}`;
       
         try {
           const response = await fetch(url, {
