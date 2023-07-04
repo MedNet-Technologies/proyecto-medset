@@ -7,6 +7,7 @@ import { useLocation } from "wouter";
 export default function Editar_medico ( {params} ) {
     const { keyword } = params
     const [geographic_location, setGeographic_location] = useState("");
+    // eslint-disable-next-line
     const [location, setLocation] = useLocation();
 
     useEffect(function () {

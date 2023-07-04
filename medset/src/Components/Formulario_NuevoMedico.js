@@ -8,6 +8,7 @@ export default function Formulario_MedicoNuevo() {
   const [credentials, setCredentials] = useState("");
   const [specialization, setSpecialization] = useState("");
   const [geographic_location, setGeographic_location] = useState("");
+  // eslint-disable-next-line
   const [location, setLocation] = useLocation();
 
   const handleSubmit = async (e) => {
