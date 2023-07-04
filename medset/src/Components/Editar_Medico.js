@@ -63,9 +63,9 @@ export default function Editar_medico ( {params} ) {
 <div className="card mx-auto shadow-lg" style={{ maxWidth: "70rem" }}>
         <div className="card-header text-light h5 ps-4 py-3">ACTUALIZA DATOS</div>
         <div className="card-body text-white" >
-        <form onSubmit={handleSubmit} className="needs-validation" novalidate>
+        <form onSubmit={handleSubmit} className="needs-validation" noValidate>
           <div className="mb-3">
-            <label for="geographic_location">Comuna</label>
+            <label htmlFor="geographic_location">Comuna</label>
             <input
               type="text"
               required
@@ -75,7 +75,7 @@ export default function Editar_medico ( {params} ) {
             ></input>
           </div>
           <button className="btn btn-primary"onClick={() => setLocation("/Lista_medicos")}>Volver</button>
-          <button type="submit" className="btn btn-primary ms-2">
+          <button type="submit" className="btn btn-primary ms-2" id="btn_enviar_2">
             Enviar
           </button>
         </form>

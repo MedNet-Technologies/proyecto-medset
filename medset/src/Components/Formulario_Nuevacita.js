@@ -59,7 +59,7 @@ export default function Formulario_Nuevacita({params}) {
             onClick={() => setLocation("/Lista_medicos_citas")}
           >
             Ir a médicos
-            <i class="bi bi-arrow-left-circle-fill"></i>
+            <i className="bi bi-arrow-left-circle-fill"></i>
           </button>
         </div>
         <div>
@@ -67,11 +67,11 @@ export default function Formulario_Nuevacita({params}) {
             id="meds"
             onSubmit={handleSubmit}
             className="needs-validation"
-            novalidate
+            noValidate
           >   
               <div className="mb-3">
 
-              <label for="date">Fecha</label>
+              <label htmlFor="date">Fecha</label>
               <input type="date" id="start" name="trip-start"
               min="2018-01-01" max="2025-12-31"
               onChange={(e) => setDate(e.target.value.toString())}
@@ -80,7 +80,7 @@ export default function Formulario_Nuevacita({params}) {
             </div>
 
             <div className="mb-3">
-              <label for="time">Hora</label>
+              <label htmlFor="time">Hora</label>
               <input
                 type="time" id="appt" name="appt"
                 min="09:00" max="18:00" required
@@ -91,7 +91,7 @@ export default function Formulario_Nuevacita({params}) {
 
 
             <div className="mb-3">
-              <label for="rut">Rut</label>
+              <label htmlFor="rut">Rut</label>
               <input
                 type="text"
                 required
@@ -102,7 +102,7 @@ export default function Formulario_Nuevacita({params}) {
             </div>
 
             
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" className="btn btn-primary">
               Enviar
             </button>
           </form>

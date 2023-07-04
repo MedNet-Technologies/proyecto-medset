@@ -51,10 +51,10 @@ export default function Formulario_MedicoNuevo() {
             id="meds"
             onSubmit={handleSubmit}
             className="needs-validation"
-            novalidate
+            noValidate
           >
             <div className="mb-3">
-              <label for="first_name">Nombre</label>
+              <label htmlFor="first_name">Nombre</label>
               <input
                 type="text"
                 required
@@ -65,7 +65,7 @@ export default function Formulario_MedicoNuevo() {
             </div>
 
             <div className="mb-3">
-              <label for="last_name">Apellido</label>
+              <label htmlFor="last_name">Apellido</label>
               <input
                 type="text"
                 required
@@ -76,7 +76,7 @@ export default function Formulario_MedicoNuevo() {
             </div>
 
             <div className="mb-3">
-              <label for="specialization">Especialización</label>
+              <label htmlFor="specialization">Especialización</label>
               <input
                 type="text"
                 required
@@ -87,7 +87,7 @@ export default function Formulario_MedicoNuevo() {
             </div>
 
             <div className="mb-3">
-              <label for="geographic_location">Comuna</label>
+              <label htmlFor="geographic_location">Comuna</label>
               <input
                 type="text"
                 required
@@ -98,7 +98,7 @@ export default function Formulario_MedicoNuevo() {
             </div>
 
             <div className="mb-3">
-              <label for="credentials">Credenciales</label>
+              <label htmlFor="credentials">Credenciales</label>
               <input
                 type="text"
                 required
@@ -113,7 +113,7 @@ export default function Formulario_MedicoNuevo() {
             >
               Volver
             </button>
-            <button type="submit" class="btn btn-primary ms-2">
+            <button type="submit" id="btn_enviar" className="btn btn-primary ms-2">
               Enviar
             </button>
           </form>

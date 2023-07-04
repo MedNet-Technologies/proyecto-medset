@@ -41,13 +41,13 @@ export default function Lista_medicos_citas() {
 
   return (
     <div className="card mx-auto" style={{ maxWidth: "100rem" }}>
-      <div class="card-header text-light h5 ps-4 py-3">
+      <div className="card-header text-light h5 ps-4 py-3">
         <Link to={"/lista_medicos"}>
-          <button class="btn btn-primary izquierda"> dev</button>
+          <button className="btn btn-primary izquierda"> dev</button>
         </Link>
         SELECCIONA UN MÉDICO
         <Link to={"/formulario_medicos"}>
-          <button class="btn btn-primary derecha"> Crear Médico</button>
+          <button className="btn btn-primary derecha"> Crear Médico</button>
         </Link>
       </div>
       <div className="mt-3 mb-4 align-middle d-flex flex-row">
@@ -60,21 +60,21 @@ export default function Lista_medicos_citas() {
         />
       </div>
       {data.length === 0 ? (
-        <div class="card-body table-responsive">
-          <table class="table">
+        <div className="card-body table-responsive">
+          <table className="table">
             <thead>
-              <tr class="text-secondary">
+              <tr className="text-secondary">
                 <th scope="col">Nombre</th>
                 <th scope="col">Comuna</th>
                 <th scope="col">Especialización</th>
-                <th class="pa-0 ma-0" style={{ width: "2px" }}></th>
+                <th className="pa-0 ma-0" style={{ width: "2px" }}></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th colspan="4" class="text-center">
-                  <div class="spinner-grow text-primary px-9" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                <th colSpan="4" className="text-center">
+                  <div className="spinner-grow text-primary px-9" role="status">
+                    <span className="visually-hidden">Loading...</span>
                   </div>
                 </th>
               </tr>
@@ -82,14 +82,14 @@ export default function Lista_medicos_citas() {
           </table>
         </div>
       ) : (
-        <div class="card-body table-responsive">
-          <table class="table">
+        <div className="card-body table-responsive">
+          <table className="table">
             <thead>
-              <tr class="text-secondary">
+              <tr className="text-secondary">
                 <th scope="col">Nombre</th>
                 <th scope="col">Comuna</th>
                 <th scope="col">Especialización</th>
-                <th class="pa-0 ma-0" style={{ width: "2px" }}></th>
+                <th className="pa-0 ma-0" style={{ width: "2px" }}></th>
               </tr>
             </thead>
             <tbody>
@@ -97,7 +97,7 @@ export default function Lista_medicos_citas() {
                 const panaURL = `/nueva_cita/${todo.medic_id}`;
 
                 return (
-                  <tr class="text-white">
+                  <tr className="text-white">
                     <td>
                       {todo.first_name} {todo.last_name}
                     </td>
@@ -105,7 +105,7 @@ export default function Lista_medicos_citas() {
                     <td>{todo.specialization}</td>
                     <td>
                       <Link to={panaURL}>
-                        <button class="btn btn-primary me-md-1" type="button">
+                        <button className="btn btn-primary me-md-1" type="button">
                           Agendar
                         </button>
                       </Link>
