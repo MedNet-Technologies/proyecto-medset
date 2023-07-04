@@ -1,6 +1,6 @@
 var webdriver = require('selenium-webdriver');
-// const {Builder} = require('selenium-webdriver');
-var { By, until } = require("selenium-webdriver");
+const { Builder } = require('selenium-webdriver');
+var { By } = require("selenium-webdriver");
 const edge = require('selenium-webdriver/edge');
 
 const options = new edge.Options();
@@ -12,41 +12,27 @@ async function run() {
         await browser.get('http://localhost:3000');
         await browser.findElement(By.id("btn_medicos")).click();
         await browser.findElement(By.id("btn_crearmedicos")).click();
-        // let condition1 = await until.elementIsEnabled(browser.findElement(By.id('first_name')));
-        // await browser.wait(condition1, 5000);
         await new Promise(resolve => setTimeout(resolve, 3000));
         
         // Crear médico
-        console.log("1");
         await browser.findElement(By.id('first_name')).sendKeys('John');
         await browser.executeScript('window.scrollBy(0, 500)');
         await browser.findElement(By.id('last_name')).sendKeys('Doe');
         await browser.findElement(By.id('specialization')).sendKeys('Cardiology');
         await browser.findElement(By.id('geographic_location')).sendKeys('New York');
-        //let fieldCredentials = await browser.findElement(By.id('credentials'));
-        //await browser.executeScript("arguments[0].scrollIntoView(true);", fieldCredentials);
-        //fieldCredentials.sendKeys('Credentials');
-        //let btnSend = await browser.findElement(By.id('btn_enviar'));
-        //await browser.executeScript("arguments[0].scrollIntoView(true);", btnSend);
-        //btnSend.click();
         await browser.findElement(By.id('credentials')).sendKeys('Credentials');
         await browser.findElement(By.id("btn_enviar")).click();
-        console.log("2");
         await new Promise(resolve => setTimeout(resolve, 5000));
 
         //Editar médico
         await browser.findElement(By.xpath('//button[@class="swal2-confirm swal2-styled"]')).click();      
-        console.log("3");
         await new Promise(resolve => setTimeout(resolve, 5000));
         let elements = await browser.findElements(By.id("btn_editar"));
-        console.log("4");
         await elements[elements.length - 1].click();
-        console.log("5");
         await browser.findElement(By.id('geographic_location')).sendKeys('Pitsburgh');
         await browser.findElement(By.id("btn_enviar_2")).click();
-
-
         await new Promise(resolve => setTimeout(resolve, 5000));
+
         //Eliminar médico
         await browser.findElement(By.xpath('//button[@class="swal2-confirm swal2-styled"]')).click();      
         let tds = await browser.findElements(By.css("td"));
@@ -57,14 +43,14 @@ async function run() {
         await new Promise(resolve => setTimeout(resolve, 3000));
         elements = await browser.findElements(By.css("button[href*='/nueva_cita/']"));
         await elements[elements.length - 1].click();
+
         //Crear cita
         await browser.findElement(By.id('start')).sendKeys('12022023');
         await browser.findElement(By.id('appt')).sendKeys('0432PM');
         await browser.findElement(By.id('rut')).sendKeys('18934212-0');
         await browser.findElement(By.css("button[type='submit']")).click();
         await new Promise(resolve => setTimeout(resolve, 5000));
-        await browser.findElement(By.xpath('//button[@class="swal2-confirm swal2-styled"]')).click();      
-        console.log("TERMINO!");
+        await browser.findElement(By.xpath('//button[@class="swal2-confirm swal2-styled"]')).click(); 
         await new Promise(resolve => setTimeout(resolve, 3000));
 
     } catch (error) {
