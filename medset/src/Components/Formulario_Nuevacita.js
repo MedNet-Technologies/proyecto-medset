@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 
 
 export default function Formulario_Nuevacita({params}) {
@@ -8,14 +8,7 @@ export default function Formulario_Nuevacita({params}) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [rut, setRut] = useState("");
-  const [location, setLocation] = useLocation();
-  var strDate = new String();
-  var strTime = new String();
-  
-
-
-
-
+  const [setLocation] = useLocation();
 
   const handleSubmit = async (e) => {
     e.stopPropagation();

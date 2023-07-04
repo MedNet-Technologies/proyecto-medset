@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route } from "wouter";
-import { useEffect } from 'react';  
 import Home from './Components/Home';
 import Lista_medicos from "./Components/Lista_medicos";
 import Formulario_NuevoMedico from "./Components/Formulario_NuevoMedico";

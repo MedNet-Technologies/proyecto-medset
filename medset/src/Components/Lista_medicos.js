@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "wouter";
-import Moment from "moment";
-import Button from "react-bootstrap/Button";
-import Swal from "sweetalert2";
 
 export default function Lista_medicos() {
   const [data, setData] = useState([]);
@@ -19,9 +16,12 @@ export default function Lista_medicos() {
         console.log(err.message);
       });
   };
-  useEffect(() => {
+
+
+  useEffect(() => {   
     fetchData();
-  }, []);
+  // eslint-disable-next-line
+  }, []); 
   return (
     <div className="card mx-auto" style={{ maxWidth: "100rem" }}>
       <div className="card-header text-light h5 ps-4 py-3">

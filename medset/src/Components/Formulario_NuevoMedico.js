@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { Link, useLocation } from "wouter";
+import {useLocation } from "wouter";
 
 export default function Formulario_MedicoNuevo() {
   const [first_name, setFirst_name] = useState("");
@@ -8,7 +8,7 @@ export default function Formulario_MedicoNuevo() {
   const [credentials, setCredentials] = useState("");
   const [specialization, setSpecialization] = useState("");
   const [geographic_location, setGeographic_location] = useState("");
-  const [location, setLocation] = useLocation();
+  const [setLocation] = useLocation();
 
   const handleSubmit = async (e) => {
     e.stopPropagation();

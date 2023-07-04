@@ -7,7 +7,7 @@ import { useLocation } from "wouter";
 export default function Editar_medico ( {params} ) {
     const { keyword } = params
     const [geographic_location, setGeographic_location] = useState("");
-    const [location, setLocation] = useLocation();
+    const [setLocation] = useLocation();
 
     useEffect(function () {
         getMedicoEspecifico( {keyword} ).then((ficha) => {

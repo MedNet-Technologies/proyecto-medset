@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "wouter";
-import Moment from "moment";
-import Button from "react-bootstrap/Button";
-import Swal from "sweetalert2";
 
 export default function Lista_medicos_citas() {
   const [data, setData] = useState([]);
