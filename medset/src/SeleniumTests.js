@@ -7,7 +7,7 @@ const options = new edge.Options();
 options.addArguments('headless');
 
 async function run() {
-    var browser = new webdriver.Builder().forBrowser('MicrosoftEdge').setEdgeOptions().build();
+    var browser = new webdriver.Builder().forBrowser('MicrosoftEdge').setEdgeOptions(options).build();
     try {
         await browser.get('http://localhost:3000');
         await browser.findElement(By.id("btn_medicos")).click();
