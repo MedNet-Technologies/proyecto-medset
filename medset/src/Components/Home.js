@@ -4,7 +4,7 @@ import { Link } from 'wouter' ;
 function Home() {
   return (
     <Link to="/lista_medicos">
-        <button type="button" id="btn_medicos" className="btn btn-primary btn-lg">Alo</button>
+        <button type="button" id="btn_medicos" className="btn btn-primary btn-lg">AAA</button>
     </Link>
   );
 }
