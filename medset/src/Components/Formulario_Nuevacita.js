@@ -8,6 +8,7 @@ export default function Formulario_Nuevacita({params}) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [rut, setRut] = useState("");
+  // eslint-disable-next-line
   const [location, setLocation] = useLocation();
 
   const handleSubmit = async (e) => {
