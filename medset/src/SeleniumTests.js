@@ -56,6 +56,7 @@ async function run() {
     } catch (error) {
         console.log(error);
         process.exit(1);
+        
 } finally {
         await browser.quit();
     }
