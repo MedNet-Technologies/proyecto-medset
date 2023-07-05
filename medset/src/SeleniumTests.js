@@ -54,10 +54,13 @@ async function run() {
         await new Promise(resolve => setTimeout(resolve, 3000));
 
     } catch (error) {
-        console.error(error);
-    } finally {
+        console.log(error);
+        process.exit(1);
+        
+} finally {
         await browser.quit();
     }
 }
 
 run();
+
